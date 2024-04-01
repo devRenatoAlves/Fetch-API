@@ -1,29 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/scripts.js" defer></script>
+</head>
+<body>
+  <p id="loading">Carregando...</p>
+  <div id="post" class="hide">
+    <a href="index.html">Voltar</a>
+    <div id="post-container"></div>
+    <h2>Comentários:</h2>
+    <form id="comment-form">
 
-async function getAllPosts() {
-    const response = await fetch(url);
-  
-    console.log(response);
-  
-    const data = await response.json();
-  
-    console.log(data);
-  
-    loadingElement.classList.add("hide");
-  
-    data.map((post) => {
-      const div = document.createElement("div");
-      const title = document.createElement("h2");
-      const body = document.createElement("p");
-      const link = document.createElement("a");
-  
-      title.innerText = post.title;
-      body.innerText = post.body;
-      link.innerText = "Ler";
-      link.setAttribute("href", `/post.html?id=${post.id}`);
-  
-      div.appendChild(title);
-      div.appendChild(body);
-      div.appendChild(link);
-      postsContainer.appendChild(div);
-    });
-  }
+      <div>
+        <label for="email">Seu e-mail:</label>
+        <input
+        type="email"
+        name="email" 
+        id="email" 
+        placeholder="Digite seu e-mail" 
+        required
+        />
+      </div>
+
+      <div>
+        <label for="body">Seu comentário:</label>
+        <textarea
+        name="body" 
+        id="body" 
+        placeholder="Digite seu comentário" 
+        required
+        />
+      </div>
+      <input type="submit" value="Enviar">
+    </form>
+    <div id="comments-container"></div>
+  </div>
+</body>
+</html>
